@@ -238,8 +238,8 @@ footer {
 
 .social-links img {
     filter: invert(1);
-    background-color: var(--primary-color);
-    padding: 5px;
+    background-color: var(--accent-color);
+    padding: 10px;
     border-radius: 50%;
 }
 
