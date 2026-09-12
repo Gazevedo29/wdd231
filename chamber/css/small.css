@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+#members.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+#members.list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+#members.list .member-card {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    text-align: left;
+    align-items: center;
+    border: 1px solid #ccc;
+    box-shadow: none;
+}
+
+#members.list .member-card img {
+    width: 80px;
+    height: 60px;
+}

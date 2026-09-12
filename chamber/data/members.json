@@ -1,0 +1,65 @@
+[
+    {
+        "name": "Beira Business Center",
+        "address": "Rua da Beira, Beira, Mozambique",
+        "phone": "+258 84 123 4567",
+        "website": "https://gazevedo29.github.io/wdd231/",
+        "image": "company1.jpg",
+        "membership": 3,
+        "description": "Business services and professional support."
+    },
+    {
+        "name": "Mozambique Tech Solutions",
+        "address": "Av. Samora Machel, Beira, Mozambique",
+        "phone": "+258 82 234 5678",
+        "website": "https://gazevedo29.github.io/wdd231/",
+        "image": "company2.jpg",
+        "membership": 2,
+        "description": "Technology and digital solutions."
+    },
+    {
+        "name": "Beira Construction",
+        "address": "Rua Principal, Beira, Mozambique",
+        "phone": "+258 86 345 6789",
+        "website": "https://gazevedo29.github.io/wdd231/",
+        "image": "company3.jpg",
+        "membership": 1,
+        "description": "Construction and building services."
+    },
+    {
+        "name": "Sofala Logistics",
+        "address": "Av. da Marginal, Beira, Mozambique",
+        "phone": "+258 84 456 7890",
+        "website": "https://gazevedo29.github.io/wdd231/",
+        "image": "company4.jpg",
+        "membership": 3,
+        "description": "Transportation and logistics services."
+    },
+    {
+        "name": "Beira Digital Media",
+        "address": "Rua do Comércio, Beira, Mozambique",
+        "phone": "+258 82 567 8901",
+        "website": "https://gazevedo29.github.io/wdd231/",
+        "image": "company5.webp",
+        "membership": 2,
+        "description": "Digital marketing and media services."
+    },
+    {
+        "name": "Sofala Restaurant",
+        "address": "Rua Central, Beira, Mozambique",
+        "phone": "+258 86 678 9012",
+        "website": "https://gazevedo29.github.io/wdd231/",
+        "image": "company6.jpg",
+        "membership": 1,
+        "description": "Restaurant serving local and international cuisine."
+    },
+    {
+        "name": "Beira Financial Services",
+        "address": "Av. 24 de Julho, Beira, Mozambique",
+        "phone": "+258 84 789 0123",
+        "website": "https://gazevedo29.github.io/wdd231/",
+        "image": "company7.webp",
+        "membership": 3,
+        "description": "Financial and accounting services."
+    }
+]
