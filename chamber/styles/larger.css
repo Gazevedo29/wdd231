@@ -1,5 +1,4 @@
 @media screen and (min-width: 32rem) {
-
     .header-content {
         max-width: 1200px;
         margin: 0 auto;
@@ -31,23 +30,7 @@
 }
 
 @media screen and (min-width: 64rem) {
-
     #members {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-
-@media screen and (min-width: 32rem) {
-
-    #members.grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media screen and (min-width: 64rem) {
-
-    #members.grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
