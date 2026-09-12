@@ -1,10 +1,12 @@
+/* GRID VIEW */
 #members.grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
     padding: 1rem;
 }
 
+/* LIST VIEW */
 #members.list {
     display: flex;
     flex-direction: column;
@@ -12,6 +14,7 @@
     padding: 1rem;
 }
 
+/* MEMBER CARD */
 .member-card {
     border: 1px solid #ccc;
     padding: 1rem;
@@ -21,7 +24,7 @@
 }
 
 .member-card img {
-    width: 150px;
+    width: 200px;
     height: 100px;
     object-fit: contain;
     margin: 0 auto 1rem;
@@ -36,6 +39,7 @@
     margin-top: 0.5rem;
 }
 
+/* LIST CARD */
 #members.list .member-card {
     display: grid;
     grid-template-columns: 100px 1fr;
@@ -50,9 +54,24 @@
     height: 60px;
 }
 
+/* VIEW BUTTONS */
 .view-buttons {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
     margin: 1rem;
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+    #members.grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* MOBILE */
+@media (max-width: 500px) {
+    #members.grid {
+        grid-template-columns: 1fr;
+    }
 }
