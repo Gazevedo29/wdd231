@@ -1,75 +1,57 @@
 const membersContainer = document.querySelector("#members");
+const gridButton = document.querySelector("#grid-button");
+const listButton = document.querySelector("#list-button");
+const currentYear = document.querySelector("#currentyear");
+const lastModified = document.querySelector("#lastModified");
 
 async function getMembers() {
+    try {
+        const response = await fetch("data/members.json");
 
-    const response = await fetch("data/members.json");
+        if (!response.ok) {
+            throw new Error("Unable to load members.json");
+        }
 
-    const data = await response.json();
+        const members = await response.json();
 
-    displayMembers(data);
+        displayMembers(members);
+    } catch (error) {
+        console.error("Error loading members:", error);
+
+        membersContainer.innerHTML = `
+            <p>Unable to load the business directory.</p>
+        `;
+    }
 }
 
-getMembers();
-
-
-
-
 function displayMembers(members) {
-
     membersContainer.innerHTML = "";
 
-    members.forEach(member => {
-
+    members.forEach((member) => {
         const card = document.createElement("article");
 
         card.classList.add("member-card");
 
         card.innerHTML = `
             <img src="images/${member.image}" 
-                 alt="${member.name} logo"
+                 alt="${member.name} logo" 
                  loading="lazy">
 
-            <h3>${member.name}</h3>
-
-            <p>${member.description}</p>
-
-            <p>${member.address}</p>
-
-            <p>${member.phone}</p>
-
-            <p>Membership: ${getMembershipLevel(member.membership)}</p>
-
-            <a href="${member.website}" target="_blank">
-                Visit Website
-            </a>
+            <div class="member-info">
+                <h2>${member.name}</h2>
+                <p>${member.description}</p>
+                <p><strong>Address:</strong> ${member.address}</p>
+                <p><strong>Phone:</strong> ${member.phone}</p>
+                <p><strong>Membership Level:</strong> ${member.membership}</p>
+                <a href="${member.website}" target="_blank" rel="noopener">
+                    Visit Website
+                </a>
+            </div>
         `;
 
         membersContainer.appendChild(card);
     });
 }
-
-
-
-function getMembershipLevel(level) {
-
-    if (level === 1) {
-        return "Member";
-    }
-
-    if (level === 2) {
-        return "Silver";
-    }
-
-    if (level === 3) {
-        return "Gold";
-    }
-
-    return "Unknown";
-}
-
-
-const gridButton = document.querySelector("#grid-button");
-const listButton = document.querySelector("#list-button");
 
 gridButton.addEventListener("click", () => {
     membersContainer.classList.add("grid");
@@ -81,20 +63,8 @@ listButton.addEventListener("click", () => {
     membersContainer.classList.remove("grid");
 });
 
+currentYear.textContent = new Date().getFullYear();
 
+lastModified.textContent = document.lastModified;
 
-const menuButton = document.querySelector("#menu-button");
-const navigation = document.querySelector("#navigation");
-
-menuButton.addEventListener("click", () => {
-    navigation.classList.toggle("open");
-});
-
-
-const currentYear = new Date().getFullYear();
-
-document.querySelector("#currentyear").textContent = currentYear;
-
-
-document.querySelector("#lastModified").textContent =
-    document.lastModified;
+getMembers();
