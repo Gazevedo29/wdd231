@@ -1,70 +1,195 @@
-const membersContainer = document.querySelector("#members");
-const gridButton = document.querySelector("#grid-button");
-const listButton = document.querySelector("#list-button");
+// =========================================
+// MENU
+// =========================================
+
+const menuButton = document.querySelector("#menu-button");
+const navigation = document.querySelector("#navigation");
+
+if (menuButton && navigation) {
+    menuButton.addEventListener("click", () => {
+        const isOpen = navigation.classList.toggle("open");
+
+        menuButton.setAttribute("aria-expanded", isOpen);
+        menuButton.textContent = isOpen ? "\u2715" : "\u2630";
+    });
+}
+
+
+// =========================================
+// FOOTER
+// =========================================
+
 const currentYear = document.querySelector("#currentyear");
 const lastModified = document.querySelector("#lastModified");
 
+if (currentYear) {
+    currentYear.textContent = new Date().getFullYear();
+}
+
+if (lastModified) {
+    lastModified.textContent = document.lastModified;
+}
+
+
+// =========================================
+// DIRECTORY - MEMBERS
+// =========================================
+
+const membersContainer = document.querySelector("#members");
+
+const membershipNames = {
+    1: "Member",
+    2: "Silver",
+    3: "Gold"
+};
+
+
+// Display members
 async function getMembers() {
+
+    if (!membersContainer) {
+        console.error("Directory error: element #members not found.");
+        return;
+    }
+
     try {
+
         const response = await fetch("data/members.json");
 
         if (!response.ok) {
-            throw new Error("Unable to load members.json");
+            throw new Error("Unable to load members.json.");
         }
 
         const members = await response.json();
 
-        displayMembers(members);
+        membersContainer.innerHTML = "";
+
+        members.forEach((member) => {
+
+            const card = document.createElement("article");
+
+            card.classList.add("member-card");
+
+            const membershipName =
+                membershipNames[Number(member.membership)] || "Member";
+
+            card.innerHTML = `
+                <img
+                    src="images/${member.image}"
+                    alt="${member.name} logo"
+                    loading="lazy"
+                    width="200"
+                    height="100">
+
+                <h2>${member.name}</h2>
+
+                <p>${member.address}</p>
+
+                <p>${member.phone}</p>
+
+                <p>
+                    <strong>Membership:</strong>
+                    ${membershipName}
+                </p>
+
+                <a
+                    href="${member.website}"
+                    target="_blank"
+                    rel="noopener">
+                    Visit Website
+                </a>
+            `;
+
+            membersContainer.appendChild(card);
+        });
+
     } catch (error) {
-        console.error("Error loading members:", error);
+
+        console.error("Directory error:", error);
 
         membersContainer.innerHTML = `
-            <p>Unable to load the business directory.</p>
+            <p>Unable to load members.</p>
         `;
     }
 }
 
-function displayMembers(members) {
-    membersContainer.innerHTML = "";
 
-    members.forEach((member) => {
-        const card = document.createElement("article");
+// =========================================
+// GRID / LIST VIEW TOGGLE
+// =========================================
 
-        card.classList.add("member-card");
+function switchView(view) {
 
-        card.innerHTML = `
-            <img src="images/${member.image}" 
-                 alt="${member.name} logo" 
-                 loading="lazy">
+    if (!membersContainer) {
+        return;
+    }
 
-            <div class="member-info">
-                <h2>${member.name}</h2>
-                <p>${member.description}</p>
-                <p><strong>Address:</strong> ${member.address}</p>
-                <p><strong>Phone:</strong> ${member.phone}</p>
-                <p><strong>Membership Level:</strong> ${member.membership}</p>
-                <a href="${member.website}" target="_blank" rel="noopener">
-                    Visit Website
-                </a>
-            </div>
-        `;
+    membersContainer.classList.remove("grid", "list");
+    membersContainer.classList.add(view);
 
-        membersContainer.appendChild(card);
+    // Highlight the active button
+    document
+        .querySelectorAll("[data-view], #grid-button, #list-button, #grid-view, #list-view")
+        .forEach((button) => {
+
+            const label =
+                (button.id + " " + button.textContent + " " +
+                    (button.getAttribute("data-view") || ""))
+                    .toLowerCase();
+
+            button.classList.toggle("active", label.includes(view));
+        });
+}
+
+function setupViewButtons() {
+
+    // 1) Preferred: buttons with data-view attribute
+    const dataButtons = document.querySelectorAll("[data-view]");
+
+    if (dataButtons.length > 0) {
+        dataButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                switchView(button.getAttribute("data-view"));
+            });
+        });
+        return;
+    }
+
+    // 2) Fallback: find buttons by id / text / class
+    document.querySelectorAll("button").forEach((button) => {
+
+        const label =
+            (button.id + " " + button.className + " " + button.textContent)
+                .toLowerCase();
+
+        if (label.includes("grid")) {
+            button.addEventListener("click", () => switchView("grid"));
+        }
+
+        if (label.includes("list")) {
+            button.addEventListener("click", () => switchView("list"));
+        }
     });
 }
 
-gridButton.addEventListener("click", () => {
-    membersContainer.classList.add("grid");
-    membersContainer.classList.remove("list");
-});
+// Make sure a view is active when the page loads
+function setDefaultView() {
 
-listButton.addEventListener("click", () => {
-    membersContainer.classList.add("list");
-    membersContainer.classList.remove("grid");
-});
+    if (!membersContainer) {
+        return;
+    }
 
-currentYear.textContent = new Date().getFullYear();
+    if (!membersContainer.classList.contains("grid") &&
+        !membersContainer.classList.contains("list")) {
+        membersContainer.classList.add("grid");
+    }
+}
 
-lastModified.textContent = document.lastModified;
+
+// =========================================
+// RUN FUNCTIONS
+// =========================================
 
 getMembers();
+setDefaultView();
+setupViewButtons();

@@ -6,18 +6,18 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Directory of businesses and organizations in the local chamber of commerce.">
+    <meta name="description" content="Directory of businesses and organizations in the Beira Chamber of Commerce.">
 
     <meta name="author" content="Gerson Azevedo">
 
-    <title>Chamber of Commerce - Directory</title>
+    <title>Beira Chamber of Commerce - Directory</title>
 
     <link rel="icon" type="image/jpg" href="images/favicon.jpg">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Chamber of Commerce - Directory">
+    <meta property="og:title" content="Beira Chamber of Commerce - Directory">
     <meta property="og:description"
-        content="Explore businesses and organizations that are members of our local chamber of commerce.">
+        content="Explore businesses and organizations that are members of the Beira Chamber of Commerce.">
     <meta property="og:image" content="https://gazevedo29.github.io/wdd231/chamber/images/social-image.png">
     <meta property="og:url" content="https://gazevedo29.github.io/wdd231/chamber/directory.html">
     <meta property="og:type" content="website">
@@ -35,7 +35,7 @@
     <!-- JavaScript -->
     <script src="scripts/directory.js" defer></script>
 
-
+    <base target="_blank">
 </head>
 
 <body>
@@ -43,32 +43,32 @@
     <header>
         <div class="header-content">
 
-            <img src="images/logo.jpg" alt="Chamber of Commerce logo">
+            <img src="images/logo.jpg" alt="Beira Chamber of Commerce logo" width="70" height="70">
 
             <div>
-                <p>Chamber of Commerce</p>
+                <p>Beira Chamber of Commerce</p>
                 <p>Business Directory</p>
             </div>
 
-            <button id="menu-button" aria-label="Open navigation menu">
+            <button id="menu-button" aria-label="Toggle navigation menu" aria-expanded="false">
                 ☰
             </button>
 
         </div>
 
         <nav id="navigation">
-            <a href="#">Home</a>
+            <a href="index.html">Home</a>
             <a href="directory.html" class="active">Directory</a>
-            <a href="#">Join</a>
-            <a href="#">Discover</a>
+            <a href="join.html">Join</a>
+            <a href="discover.html">Discover</a>
         </nav>
     </header>
 
     <main>
-        <h1>Chamber of Commerce - Directory</h1>
+        <h1>Beira Chamber of Commerce - Directory</h1>
 
         <div class="view-buttons">
-            <button id="grid-button" type="button">Grid</button>
+            <button id="grid-button" type="button" class="active">Grid</button>
             <button id="list-button" type="button">List</button>
         </div>
 
@@ -80,7 +80,7 @@
     <footer>
 
         <div>
-            <p>Chamber of Commerce</p>
+            <p>Beira Chamber of Commerce</p>
             <p>Beira, Mozambique</p>
             <p>Email: gazevedo@byupathway.edu</p>
             <p>Phone: +258 86 283 2678</p>
@@ -89,7 +89,7 @@
         <div>
             <p>
                 &copy; <span id="currentyear"></span>
-                Chamber of Commerce
+                Beira Chamber of Commerce
             </p>
 
             <p>Gerson Azevedo | WDD 231</p>

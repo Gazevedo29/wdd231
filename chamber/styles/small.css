@@ -1,32 +1,305 @@
-/* GRID VIEW */
+/* =========================================
+   GENERAL STYLES
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    line-height: 1.6;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.header-content img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+}
+
+.header-content p {
+    margin: 0;
+}
+
+#menu-button {
+    display: block;
+    border: none;
+    background: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+nav {
+    display: none;
+    flex-direction: column;
+}
+
+nav.open {
+    display: flex;
+}
+
+nav a {
+    padding: 0.8rem 1rem;
+    text-decoration: none;
+    text-align: center;
+}
+
+nav a.active {
+    font-weight: 700;
+}
+
+
+/* =========================================
+   HOME PAGE - HERO
+========================================= */
+
+.hero {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.hero img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 90%;
+    text-align: center;
+
+    /* dark panel so the text is readable over the photo */
+    background-color: rgba(0, 0, 0, 0.55);
+
+    padding: 1.5rem 1rem;
+    border-radius: 8px;
+}
+
+.hero-content h2 {
+    margin-bottom: 0.75rem;
+
+    color: #ffffff;
+
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.hero-content p {
+    margin-bottom: 1rem;
+
+    color: #f0f0f0;
+
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.cta {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+
+    text-decoration: none;
+    font-weight: 700;
+
+    border-radius: 5px;
+
+    color: #1a1a1a;
+    background-color: #f0b429;
+}
+
+.cta:hover {
+    background-color: #ffd166;
+}
+
+
+/* =========================================
+   EVENTS
+========================================= */
+
+.events {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    margin-bottom: 2rem;
+}
+
+.events>h2 {
+    margin-bottom: 0;
+}
+
+.event-card {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+
+/* =========================================
+   WEATHER
+========================================= */
+
+.weather {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    margin-bottom: 2rem;
+}
+
+.weather>h2 {
+    margin-bottom: 0;
+}
+
+#current-weather,
+#forecast {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+#current-weather img {
+    vertical-align: middle;
+}
+
+
+/* =========================================
+   BUSINESS SPOTLIGHTS
+========================================= */
+
+.spotlights {
+    margin-bottom: 2rem;
+}
+
+#spotlight-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.spotlight-card {
+    padding: 1rem;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+    text-align: center;
+}
+
+.spotlight-card img {
+    display: block;
+
+    width: 150px;
+    height: 100px;
+
+    object-fit: contain;
+
+    margin: 0 auto 1rem;
+}
+
+.spotlight-card h3 {
+    margin-top: 0;
+}
+
+.spotlight-card a {
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+
+/* =========================================
+   DIRECTORY - GRID VIEW
+========================================= */
+
 #members.grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns: 1fr;
+
     gap: 1.5rem;
+
     padding: 1rem;
 }
 
-/* LIST VIEW */
+
+/* =========================================
+   DIRECTORY - LIST VIEW
+========================================= */
+
 #members.list {
     display: flex;
+
     flex-direction: column;
+
     gap: 0;
+
     padding: 1rem;
 }
 
-/* MEMBER CARD */
+
+/* =========================================
+   MEMBER CARD
+========================================= */
+
 .member-card {
     border: 1px solid #ccc;
+
     padding: 1rem;
+
     background-color: white;
+
     text-align: center;
+
     border-radius: 8px;
 }
 
 .member-card img {
     width: 200px;
+
     height: 100px;
+
     object-fit: contain;
+
     margin: 0 auto 1rem;
 }
 
@@ -36,42 +309,79 @@
 
 .member-card a {
     display: inline-block;
+
     margin-top: 0.5rem;
 }
 
-/* LIST CARD */
+
+/* =========================================
+   DIRECTORY - LIST CARD
+========================================= */
+
 #members.list .member-card {
     display: grid;
+
     grid-template-columns: 100px 1fr;
+
     text-align: left;
+
     align-items: center;
+
     box-shadow: none;
+
     border-radius: 0;
 }
 
 #members.list .member-card img {
     width: 80px;
+
     height: 60px;
+
+    object-fit: contain;
 }
 
-/* VIEW BUTTONS */
+
+/* =========================================
+   VIEW BUTTONS
+========================================= */
+
 .view-buttons {
     display: flex;
+
     justify-content: center;
+
     gap: 0.5rem;
+
     margin: 1rem;
 }
 
-/* TABLET */
-@media (max-width: 768px) {
-    #members.grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.view-buttons button {
+    padding: 0.5rem 1rem;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+    background-color: #ffffff;
 }
 
-/* MOBILE */
-@media (max-width: 500px) {
-    #members.grid {
-        grid-template-columns: 1fr;
-    }
+.view-buttons button.active {
+    background-color: #333333;
+    color: #ffffff;
+
+    border-color: #333333;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    padding: 2rem 1rem;
+
+    text-align: center;
 }

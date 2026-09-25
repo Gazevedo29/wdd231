@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Welcome to the Beira Chamber of Commerce. Discover local businesses, upcoming events, weather information, and opportunities to connect with the business community.">
+
+    <meta name="author" content="Gerson Azevedo">
+
+    <title>Beira Chamber of Commerce - Home</title>
+
+    <link rel="icon" type="image/jpg" href="images/favicon.jpg">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Beira Chamber of Commerce">
+    <meta property="og:description"
+        content="Connect with businesses and organizations in the Beira Chamber of Commerce.">
+    <meta property="og:image" content="https://gazevedo29.github.io/wdd231/chamber/images/social-image.png">
+    <meta property="og:url" content="https://gazevedo29.github.io/wdd231/chamber/index.html">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/larger.css">
+
+    <!-- JavaScript -->
+    <script src="scripts/home.js" defer></script>
+
+    <base target="_blank">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-content">
+
+            <img src="images/logo.jpg" alt="Beira Chamber of Commerce logo" width="70" height="70">
+
+            <div>
+                <p>Beira Chamber of Commerce</p>
+                <p>Beira, Mozambique</p>
+            </div>
+
+            <button id="menu-button" aria-label="Toggle navigation menu" aria-expanded="false">
+                ☰
+            </button>
+
+        </div>
+
+        <!-- NAVIGATION -->
+        <nav id="navigation">
+
+            <a href="index.html" class="active">Home</a>
+
+            <a href="directory.html">Directory</a>
+
+            <a href="join.html">Join</a>
+
+            <a href="discover.html">Discover</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <h1>Beira Chamber of Commerce</h1>
+
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <img src="images/beira.jpg" alt="View of Beira, Mozambique">
+
+            <div class="hero-content">
+
+                <h2>Welcome to the Beira Chamber of Commerce</h2>
+
+                <p>
+                    Connecting businesses and strengthening our local community.
+                </p>
+
+                <a href="join.html" class="cta">
+                    Join the Chamber
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- CURRENT EVENTS -->
+        <section class="events">
+
+            <h2>Current Events</h2>
+
+            <article class="event-card">
+
+                <h3>Business Networking Event</h3>
+
+                <p>
+                    Connect with local entrepreneurs and business owners
+                    and discover new opportunities for collaboration.
+                </p>
+
+                <p>
+                    <strong>Date:</strong> September 30, 2026
+                </p>
+
+            </article>
+
+
+            <article class="event-card">
+
+                <h3>Entrepreneurship Workshop</h3>
+
+                <p>
+                    Learn useful strategies for starting, developing,
+                    and growing your business.
+                </p>
+
+                <p>
+                    <strong>Date:</strong> October 5, 2026
+                </p>
+
+            </article>
+
+        </section>
+
+
+        <!-- WEATHER -->
+        <section class="weather">
+
+            <h2>Beira Weather</h2>
+
+            <div id="current-weather">
+
+                <p>Loading current weather...</p>
+
+            </div>
+
+
+            <div id="forecast">
+
+                <h3>3-Day Forecast</h3>
+
+                <p>Loading forecast...</p>
+
+            </div>
+
+        </section>
+
+
+        <!-- BUSINESS SPOTLIGHTS -->
+        <section class="spotlights">
+
+            <h2>Business Spotlights</h2>
+
+            <div id="spotlight-container">
+
+                <p>Loading business spotlights...</p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div>
+
+            <p>Beira Chamber of Commerce</p>
+
+            <p>Beira, Mozambique</p>
+
+            <p>Email: gazevedo@byupathway.edu</p>
+
+            <p>Phone: +258 86 283 2678</p>
+
+        </div>
+
+
+        <div>
+
+            <p>
+                &copy;
+                <span id="currentyear"></span>
+                Beira Chamber of Commerce
+            </p>
+
+            <p>
+                Gerson Azevedo | WDD 231
+            </p>
+
+            <p>
+                Last Modification:
+                <span id="lastModified"></span>
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
